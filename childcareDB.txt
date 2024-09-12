@@ -1,0 +1,84 @@
+CREATE DATABASE childcare_db;
+USE childcare_db;
+
+CREATE TABLE children (   
+    child_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    date VARCHAR(255),
+    arrival VARCHAR(255)
+);
+
+CREATE TABLE dailyreports (
+    dailyreports_id INT AUTO_INCREMENT PRIMARY KEY,
+    child_id INT,
+    meals VARCHAR(255) NOT NULL,
+    toilets VARCHAR(255) NOT NULL,
+    rest VARCHAR(255) NOT NULL,
+    FOREIGN KEY (child1_id) REFERENCES children(child_id)
+);
+
+CREATE TABLE accidentreports (
+    accidentreports_id INT AUTO_INCREMENT PRIMARY KEY,
+	child_id INT,
+    whattime VARCHAR(255) NOT NULL,
+    wherehurt VARCHAR(255) NOT NULL,
+    whathappened VARCHAR(255) NOT NULL,
+    firstaid VARCHAR(255) NOT NULL,
+    FOREIGN KEY (child_id) REFERENCES children(child_id)
+);
+
+INSERT INTO children (name, date, arrival) VALUES
+('child1', '4', 'time');
+INSERT INTO children (name, date, arrival) VALUES
+('child2', '4', 'time');
+INSERT INTO children (name, date, arrival) VALUES
+('child3', '4', 'time');
+INSERT INTO children (name, date, arrival) VALUES
+('child4', '4', 'time');
+INSERT INTO children (name, date, arrival) VALUES
+('child5', '4', 'time');
+
+
+INSERT INTO dailyreports (child_id, meals, toilets, rest) VALUES
+(1, 'Meals_Time','Toilet_Time','Rest_Time');
+INSERT INTO dailyreports (child_id, meals, toilets, rest) VALUES
+(2, 'Meals_Time','Toilet_Time','Rest_Time');
+INSERT INTO dailyreports (child_id, meals, toilets, rest) VALUES
+(3, 'Meals_Time','Toilet_Time','Rest_Time');
+INSERT INTO dailyreports (child_id, meals, toilets, rest) VALUES
+(4, 'Meals_Time','Toilet_Time','Rest_Time');
+INSERT INTO dailyreports (child_id, meals, toilets, rest) VALUES
+(5, 'Meals_Time','Toilet_Time','Rest_Time');
+
+INSERT INTO accidentreports (child_id, whattime, wherehurt, whathappened, firstaid) VALUES
+(1, 'whattime', 'wherehurt', 'whathappend', 'firstaid');
+INSERT INTO accidentreports (child_id, whattime, wherehurt, whathappened, firstaid) VALUES
+(2, 'whattime', 'wherehurt', 'whathappend', 'firstaid');
+INSERT INTO accidentreports (child_id, whattime, wherehurt, whathappened, firstaid) VALUES
+(3, 'whattime', 'wherehurt', 'whathappend', 'firstaid');
+INSERT INTO accidentreports (child_id, whattime, wherehurt, whathappened, firstaid) VALUES
+(4, 'whattime', 'wherehurt', 'whathappend', 'firstaid');
+INSERT INTO accidentreports (child_id, whattime, wherehurt, whathappened, firstaid) VALUES
+(5, 'whattime', 'wherehurt', 'whathappend', 'firstaid');
+
+update children set date='11/09/2024', arrival='09:01 AM' where child_id = 1;
+update children set date='11/09/2024', arrival='09:02 AM' where child_id = 2;
+update children set date='11/09/2024', arrival='09:03 AM' where child_id = 3;
+update children set date='11/09/2024', arrival='09:04 AM' where child_id = 4;
+update children set date='11/09/2024', arrival='09:05 AM' where child_id = 5;
+
+
+update dailyreports set meals='11/09/2024 1 PM', toilets='11/09/2024 3:00 PM', rest='11/09/2024 3:30 PM' where child_id = 1;
+update dailyreports set meals='11/09/2024 1 PM', toilets='11/09/2024 3:10 PM', rest='11/09/2024 3:30 PM' where child_id = 2;
+update dailyreports set meals='11/09/2024 1 PM', toilets='11/09/2024 3:05 PM', rest='11/09/2024 3:30 PM' where child_id = 3;
+update dailyreports set meals='11/09/2024 1 PM', toilets='11/09/2024 3:15 PM', rest='11/09/2024 3:30 PM' where child_id = 4;
+update dailyreports set meals='11/09/2024 1 PM', toilets='11/09/2024 3:20 PM', rest='11/09/2024 3:45 PM' where child_id = 5;
+
+
+update accidentreports set whattime='11/09/2024 1 PM', wherehurt='Leg', whathappened='Hurt', firstaid='Yes' where child_id = 1;
+update accidentreports set whattime='11/09/2024 1 PM', wherehurt='Hand', whathappened='Hurt', firstaid='Yes' where child_id = 2;
+update accidentreports set whattime='11/09/2024 1 PM', wherehurt='Head', whathappened='Hurt', firstaid='No' where child_id = 3;
+update accidentreports set whattime='11/09/2024 1 PM', wherehurt='Back', whathappened='Hurt', firstaid='No' where child_id = 4;
+update accidentreports set whattime='11/09/2024 1 PM', wherehurt='Knee', whathappened='Hurt', firstaid='No' where child_id = 5;
+
+commit;
