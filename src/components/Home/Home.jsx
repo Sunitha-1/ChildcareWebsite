@@ -1,9 +1,9 @@
 import React from "react";
-import "./Hero.css";
+import "./Home.css";
 import arrow_icon from "../../assets/arrow_icon.png";
 import { Link } from "react-router-dom";
 
-const Hero = () => {
+const Home = () => {
   return (
     <div className="hero container">
       <div className="hero-text">
@@ -18,4 +18,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Home;
